@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jun 29 18:16:30 2022
+Created on Fri Jul  1 04:03:40 2022
 
 @author: Konstantinos Tsiamitros
 """
@@ -67,52 +67,7 @@ with open('Dataset_1.csv') as file:
     for row in data:
         temp_row = []
         # preprocess data
-        """
-        for j in range(0, len(row)):
-            #zero_cnt = 0
-            # non binary columns
-            if j in [0, 3, 4, 7, 9]:
-                if j == (len(row) - 1):
-                    # store the "target" column - should be int
-                    labels.append(int(row[j]))
-                else:
-                    f = float(row[j])
-                    # remove outliers - ignore values if they are more than two times the mean
-                    if (f > m[j]) and (f < (2* m[j])):
-                        #standardization
-                        # value = (value - μ) / σ
-                        temp_row.append(f - m[j])
-                    else:
-                        temp_row.append(0)
-                        #zero_cnt = zero_cnt + 1
-            else:
-                #binary columns
-                if j == (len(row) - 1):
-                    # store the "target" column - should be int
-                    labels.append(int(row[j]))
-                else:
-                    temp_row.append(float(row[j]))
-        # downsampling - remove outliers
-        cnt = 0
-        if temp_row[0] == 0:
-            cnt = cnt + 1
-        if temp_row[3] == 0:
-            cnt = cnt + 1
-        if temp_row[4] == 0:
-            cnt = cnt + 1
-        if temp_row[7] == 0:
-            cnt = cnt + 1
-        if temp_row[9] == 0:
-            cnt = cnt + 1
-            
-        if cnt >= 3:
-            del labels[-1]
-        else:
-            temp.append(temp_row)
-        #"""
-        
-        # or load raw data
-        #"""
+        # (load raw data)
         for j in range(0, len(row)):
             if j == (len(row) - 1):
                 # store the "target" column - should be int
@@ -121,7 +76,6 @@ with open('Dataset_1.csv') as file:
                 # store the rest of the columns
                 temp_row.append(float(row[j]))
         temp.append(temp_row)
-        #"""
     
     #convert parsed data to numpy array
     data = np.array(temp)

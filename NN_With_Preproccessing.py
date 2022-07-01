@@ -67,7 +67,6 @@ with open('Dataset_1.csv') as file:
     for row in data:
         temp_row = []
         # preprocess data
-        """
         for j in range(0, len(row)):
             #zero_cnt = 0
             # non binary columns
@@ -109,19 +108,6 @@ with open('Dataset_1.csv') as file:
             del labels[-1]
         else:
             temp.append(temp_row)
-        #"""
-        
-        # or load raw data
-        #"""
-        for j in range(0, len(row)):
-            if j == (len(row) - 1):
-                # store the "target" column - should be int
-                labels.append(int(row[j]))
-            else:
-                # store the rest of the columns
-                temp_row.append(float(row[j]))
-        temp.append(temp_row)
-        #"""
     
     #convert parsed data to numpy array
     data = np.array(temp)
@@ -149,10 +135,10 @@ for i in range(0, 10):
     #"""
 
 #plt.title("With preprocessing, Standardization & downsampling - 20 Neurons in hidden layer")
-plt.title("No preprocessing - 100 Neurons in hidden layer")
+plt.title("With preprocessing - 100 Neurons in hidden layer")
 plt.plot(means)
 plt.plot(stds)
-plt.savefig('NoP_S_D_and_100_N')	#save the figure in the current directory
+plt.savefig('WithP_S_D_and_100_N')	#save the figure in the current directory
 plt.show()    
 
    
